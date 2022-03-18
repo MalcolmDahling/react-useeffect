@@ -20,18 +20,22 @@ export function MovieService(){
                 });
                 
                 setMovies(movieMap);
-                console.log(movies);
-
+                
             });
     }
 
     useEffect(() => {
         getData();
     }, []);
+    
+    let movieLIs = movies.map((movie) => {
+        return(<li key={movie.id}>ID: {movie.id}, Title: {movie.name}</li>);
+    });
+
 
     return(
         <ul>
-
+            {movieLIs}
         </ul>
     );
 }
